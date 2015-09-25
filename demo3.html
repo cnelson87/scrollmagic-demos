@@ -8,6 +8,7 @@
 	<title>ScrollMagic Demos</title>
 
 	<link rel="stylesheet" href="_assets/styles/reset.css" />
+	<link rel="stylesheet" href="_assets/styles/demo-styles.css" />
 
 	<script src="_assets/vendor/modernizr.custom.min.js"></script>
 	<script src="_assets/vendor/jquery.min.js"></script>
@@ -19,8 +20,15 @@
 
 	<script>
 		$(function() {
+			// init controller
+			var controller = new ScrollMagic.Controller();
 
+			// build scene
+			var scene = new ScrollMagic.Scene({
 
+			});
+
+			controller.addScene(scene);
 
 		});
 	</script>
@@ -28,7 +36,7 @@
 </head>
 <body>
 
-	<section id="content">
+	<div id="content">
 
 		<h1>ScrollMagic Demo 3</h1>
 
@@ -37,7 +45,9 @@
 
 
 
-	</section>
+		<footer class="bottom"></footer>
+
+	</div>
 
 </body>
 </html>

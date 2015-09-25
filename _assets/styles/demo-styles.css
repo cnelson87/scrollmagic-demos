@@ -1,0 +1,74 @@
+
+/*	-----------------------------------------------
+
+	Demo Styles
+
+	----------------------------------------------- */
+
+p, ul, ol, dl, table {
+	margin: 1.5em 0;
+}
+p.half {
+	width: 50%;
+	margin: 1.5em auto;
+}
+
+#content {
+	padding: 0 20px 20px 20px;
+	text-align: center;
+}
+
+#content > header,
+#content > footer,
+#content > section {
+	position: relative;
+}
+
+header#intro {
+	height: 100vh;
+	min-height: 666px;
+}
+header#intro .centered-block {
+	width: 80%;
+	min-width: 320px;
+	min-height: 200px;
+	background: #efefef;
+	margin: 0 10%;
+	padding: 20px;
+	position: absolute;
+	top: calc(50% - 200px);
+}
+
+footer.bottom {
+	height: 666px;
+	background: #eee;
+}
+
+.scene {
+	min-height: 666px;
+}
+
+.spacer {
+	height: 100px;
+}
+
+.hr {
+	height: 1px;
+	background: #eee;
+}
+
+.box {
+	width: 100px;
+	height: 100px;
+	background: #999;
+	border-radius: 5px;
+	margin: 0 auto;
+	padding: 40px 10px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+}
+
+
+
