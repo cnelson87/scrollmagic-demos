@@ -29,9 +29,14 @@
 				ease: Linear.easeNone
 			});
 			var tween4 = TweenMax.to("#target4", 1, {
-				rotation: 360,
+				rotation: -180,
 				ease: Linear.easeNone
 			});
+			// var tween5 = TweenMax.to("#target5", 1, {
+			// 	opacity: 1,
+			// 	ease: Linear.easeNone
+			// });
+			TweenMax.set("#target5", {opacity: 0});
 
 			// build scenes
 			var scene1 = new ScrollMagic.Scene({
@@ -40,16 +45,16 @@
 				})
 				// .setTween(tween1)
 				.setPin("#target1", {pushFollowers: false}) //following el's displays before target tween
-				.addIndicators();
-				// .addTo(controller);
+				.addIndicators()
+				.addTo(controller);
 			var scene2 = new ScrollMagic.Scene({
 					triggerElement: "#trigger2",
 					duration: 300
 				})
 				// .setTween(tween2)
 				.setPin("#target2", {pushFollowers: true}) //following el's displays after target tween
-				.addIndicators();
-				// .addTo(controller);
+				.addIndicators()
+				.addTo(controller);
 			var scene3 = new ScrollMagic.Scene({
 					triggerElement: "#trigger3",
 					duration: 300
@@ -66,8 +71,30 @@
 				.setPin("#target4", {pushFollowers: true}) //following el's displays after target tween
 				.addIndicators();
 				// .addTo(controller);
+			var scene5 = new ScrollMagic.Scene({
+					triggerElement: "#trigger5",
+					duration: 300
+				})
+				// .setTween(tween5)
+				.on('enter', function(){
+					console.log('hi');
+					TweenMax.to("#target5", 0.4, {
+						opacity: 1,
+						ease: Linear.easeNone
+					});
+				})
+				.on('leave', function(){
+					console.log('bye');
+					TweenMax.to("#target5", 0.4, {
+						opacity: 0,
+						ease: Linear.easeNone
+					});
+				})
+				// .setPin("#target5", {pushFollowers: true}) //following el's displays after target tween
+				.addIndicators();
+				// .addTo(controller);
 
-			controller.addScene([scene1, scene2, scene3, scene4]); //same as scene.addTo(controller)
+			controller.addScene([scene3, scene4, scene5]); //same as scene.addTo(controller)
 
 		});
 	</script>
@@ -121,6 +148,16 @@
 			<div id="target4" class="box">BOX</div>
 
 			<p class="half">Post-Box Content. Displays after the box transition tween.</p>
+
+		</section>
+
+		<section id="scene5" class="scene">
+
+			<div id="trigger5" class="hr"></div>
+
+			<div id="target5" class="box">BOX</div>
+
+			<p class="half">Post-Box Content. Displays before the box transition tween.</p>
 
 		</section>
 
