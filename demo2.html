@@ -25,40 +25,46 @@
 			// var duration = $introBlock.offset().top + $introBlock.outerHeight();
 			// console.log(duration);
 
-			var top = 200;
-			var duration = top * 2;
-
-
 			// init controller
 			var controller = new ScrollMagic.Controller({
-				// globalSceneOptions: {
-				// 	triggerHook: 'onLeave'
-				// }
+				globalSceneOptions: {
+					triggerHook: 'onLeave'
+				}
 			});
 
 			// build tweens
 			TweenMax.set('#intro-content', {
 				opacity: 0,
 				position:' relative',
-				top: top
+				top: 150
 			});
 			var introTween = TweenMax.to('#intro-content', 1, {
-				opacity: 1,
 				top: 0,
+				ease: Linear.easeNone
+			});
+			var introTween2 = TweenMax.to('#intro-content', 1, {
+				opacity: 1.0,
 				ease: Linear.easeNone
 			});
 
 			// build scenes
 
 			var introScene = new ScrollMagic.Scene({
-				duration: duration
+				duration: '50%'
 			})
 			.setTween(introTween)
 			.addIndicators()
 			.addTo(controller);
 
+			var introScene2 = new ScrollMagic.Scene({
+				duration: '100%'
+			})
+			.setTween(introTween2)
+			.addIndicators()
+			.addTo(controller);
+
 			var holdScene = new ScrollMagic.Scene({
-				duration: '150%'
+				duration: '200%'
 			})
 			.setPin('#content')
 			.addIndicators()
