@@ -20,15 +20,50 @@
 
 	<script>
 		$(function() {
+
+			// var $introBlock = $('#intro').find('.centered-block');
+			// var duration = $introBlock.offset().top + $introBlock.outerHeight();
+			// console.log(duration);
+
+			var top = 200;
+			var duration = top * 2;
+
+
 			// init controller
-			var controller = new ScrollMagic.Controller();
-
-			// build scene
-			var scene = new ScrollMagic.Scene({
-
+			var controller = new ScrollMagic.Controller({
+				// globalSceneOptions: {
+				// 	triggerHook: 'onLeave'
+				// }
 			});
 
-			controller.addScene(scene);
+			// build tweens
+			TweenMax.set('#intro-content', {
+				opacity: 0,
+				position:' relative',
+				top: top
+			});
+			var introTween = TweenMax.to('#intro-content', 1, {
+				opacity: 1,
+				top: 0,
+				ease: Linear.easeNone
+			});
+
+			// build scenes
+
+			var introScene = new ScrollMagic.Scene({
+				duration: duration
+			})
+			.setTween(introTween)
+			.addIndicators()
+			.addTo(controller);
+
+			var holdScene = new ScrollMagic.Scene({
+				duration: '150%'
+			})
+			.setPin('#content')
+			.addIndicators()
+			.addTo(controller);
+
 
 		});
 	</script>
@@ -38,12 +73,71 @@
 
 	<div id="content">
 
-		<h1>ScrollMagic Demo 2</h1>
+		<header id="intro" class="scene-100vh">
+			<div class="centered-block">
+				<h1>ScrollMagic Demo 2</h1>
+				<div id="intro-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+		</header>
+
+		<section id="info" class="scene-100vh">
 
 
+			<h2>The javascript library for magical scroll interactions.</h2>
+			<p>
+				ScrollMagic helps you to easily react to the user's current scroll position.<br>
+				It's the perfect library for you, if you want to ...
+			</p>
+			<ul>
+				<li>animate based on scroll position – either trigger an animation or synchronize it to the scrollbar movement (like a playback scrub control).</li>
+				<li>pin an element starting at a specific scroll position – either indefinitely or for a limited amount of scroll progress (sticky elements).</li>
+				<li>toggle CSS classes of elements on and off based on scroll position.</li>
+				<li>effortlessly add parallax effects to your website.</li>
+				<li>create an infinitely scrolling page (ajax load of additional content).</li>
+				<li>add callbacks at specific scroll positions or while scrolling past a specific section, passing a progress parameter.</li>
+			</ul>
+			<p>
+				Download your copy now in form of a <a href="https://github.com/janpaepke/ScrollMagic/zipball/master">ZIP Package</a> or visit the <a href="https://github.com/janpaepke/ScrollMagic/tree/development#availability">GitHub project page</a> to find out about other sources.<br>
+				<b>To learn more about ScrollMagic check out the <a href="examples/index.html">the examples</a> and read <a href="docs/index.html">the documentation</a>.</b>
+			</p>
+			<p>
+				Should you run into any problems when using ScrollMagic, please follow the <a href="https://github.com/janpaepke/ScrollMagic/blob/development/CONTRIBUTING.md#troubleshooting">troubleshooting guide</a> before posting your question in the <a href="https://github.com/janpaepke/ScrollMagic/issues">GitHub issues section</a>.
+			</p>
+			<h3>About</h3>
+			<p>
+				ScrollMagic is a complete rewrite of its predecessor <a href="https://github.com/johnpolacek/superscrollorama" target="_blank">Superscrollorama</a> by <a href="http://johnpolacek.com">John Polacek</a>.<br>
+				A plugin-based architecture offers easy customizability and extendability.
+			</p>
+			<p>
+				ScrollMagic was developed with these principles in mind:
+			</p>
+			<ul>
+				<li>optimized performance</li>
+				<li>lightweight (6KB gzipped)</li>
+				<li>flexibility and extendibility</li>
+				<li>mobile compatibility</li>
+				<li>event management</li>
+				<li>support for responsive web design</li>
+				<li>object oriented programming and object chaining</li>
+				<li>readable, centralized code and intuitive development</li>
+				<li>support for both scroll directions (even different on one page)</li>
+				<li>support for scrolling inside div containers (even multiple on one page)</li>
+				<li>extensive debugging and logging capabilities</li>
+				<li>detailed documentation</li>
+				<li>many application examples</li>
+			</ul>
+			<h3>Credits</h3>
+			<p>
+				ScrollMagic © Jan Paepke
+			</p>
+			<p>
+				Demo Page made by Nicholas Cerminara
+			</p>
 
 
-
+		</section>
 
 		<footer class="bottom"></footer>
 

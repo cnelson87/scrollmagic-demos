@@ -24,21 +24,6 @@ p.half {
 	position: relative;
 }
 
-header#intro {
-	height: 100vh;
-	min-height: 666px;
-}
-header#intro .centered-block {
-	width: 80%;
-	min-width: 320px;
-	min-height: 200px;
-	background: #efefef;
-	margin: 0 10%;
-	padding: 20px;
-	position: absolute;
-	top: calc(50% - 200px);
-}
-
 footer.bottom {
 	height: 666px;
 	background: #eee;
@@ -47,9 +32,23 @@ footer.bottom {
 .scene {
 	min-height: 666px;
 }
+.scene-100vh {
+	min-height: calc(100vh - 40px);
+}
 
 .spacer {
 	height: 100px;
+}
+
+.centered-block {
+	width: 80%;
+	min-width: 320px;
+	min-height: 200px;
+	background: #efefef;
+	margin: 0 10%;
+	padding: 20px;
+	position: absolute;
+	top: calc(50% - 200px);
 }
 
 .hr {
