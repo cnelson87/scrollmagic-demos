@@ -6,11 +6,14 @@
 	----------------------------------------------- */
 
 p, ul, ol, dl, table {
-	margin: 1.5em 0;
-}
-p.half {
-	width: 50%;
+	width: 80%;
 	margin: 1.5em auto;
+}
+ul, ol, dl {
+	text-align: left;
+}
+p.half, ul.half, ol.half, dl.half {
+	width: 50%;
 }
 
 #content {
